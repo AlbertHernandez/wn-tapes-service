@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class TapesCreator {
-  getHello() {
+export class TapesDeleterService {
+  delete() {
     return {
-      name: 'Albert',
+      name: 'Deleter',
     };
   }
 }

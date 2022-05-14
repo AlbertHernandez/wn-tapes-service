@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
+import { TapesUseCasesModule } from './application';
 import { TapesDomainModule } from './domain';
-import { TapesUseCasesModule } from './use-cases/tapes.use-cases.module';
-import { TapesInfrastructureModule } from './infrastructure/tapes.infrastructure.module';
+import { TapesInfrastructureModule } from './infrastructure';
 
 @Module({
-  imports: [TapesDomainModule, TapesUseCasesModule, TapesInfrastructureModule],
+  imports: [TapesUseCasesModule, TapesDomainModule, TapesInfrastructureModule],
 })
 export class TapesModule {}

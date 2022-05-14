@@ -1,8 +1,13 @@
 import { Module } from '@nestjs/common';
-import { TapesCreator } from './tapes-creator.service';
+import * as tapesServices from './services';
 
 @Module({
-  providers: [TapesCreator],
-  exports: [TapesCreator],
+  providers: Object.values(tapesServices),
+  exports: [
+    tapesServices.TapesCreatorService,
+    tapesServices.TapesFinderService,
+    tapesServices.TapesUpdaterService,
+    tapesServices.TapesDeleterService,
+  ],
 })
 export class TapesDomainModule {}

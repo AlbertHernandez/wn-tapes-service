@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { GetTapesHttpController } from './get-tapes.http.controller';
-import { TapesUseCasesModule } from '../use-cases/tapes.use-cases.module';
+import { TapesUseCasesModule } from '../application';
+import * as tapesControllers from './http/controllers';
 
 @Module({
   imports: [TapesUseCasesModule],
-  controllers: [GetTapesHttpController],
+  controllers: Object.values(tapesControllers),
 })
 export class TapesInfrastructureModule {}

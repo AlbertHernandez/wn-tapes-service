@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
-import { TapesGetter } from './get-tapes/tapes-getter.use-case';
 import { TapesDomainModule } from '../domain';
+import * as tapesUseCases from './use-cases';
+
+const useCases = Object.values(tapesUseCases);
 
 @Module({
   imports: [TapesDomainModule],
-  providers: [TapesGetter],
-  exports: [TapesGetter],
+  providers: useCases,
+  exports: useCases,
 })
 export class TapesUseCasesModule {}
