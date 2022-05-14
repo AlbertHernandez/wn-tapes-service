@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TapesModule } from './tapes';
-import { SharedModule } from './shared';
+import { CommonModule } from './common';
 
 @Module({
-  imports: [SharedModule, TapesModule],
+  imports: [CommonModule, TapesModule],
 })
 export class TapesAppModule {}

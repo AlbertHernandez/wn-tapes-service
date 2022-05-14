@@ -1,9 +1,9 @@
-import { Logger, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import * as tapesServices from './services';
-import { SharedModule } from '../../shared';
+import { CommonModule } from '../../common';
 
 @Module({
-  imports: [SharedModule],
+  imports: [CommonModule],
   providers: Object.values(tapesServices),
   exports: [
     tapesServices.TapesCreatorService,

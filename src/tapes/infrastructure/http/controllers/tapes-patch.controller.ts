@@ -1,6 +1,6 @@
 import { Controller, Patch } from '@nestjs/common';
 import { TAPES_ROUTE } from '../tapes.route';
-import { V1 } from '../../../../shared/routes/routes.constants';
+import { V1 } from '../../../../common';
 import { TapesUpdaterUseCase } from '../../../application/use-cases';
 
 @Controller(`${V1}/${TAPES_ROUTE}`)

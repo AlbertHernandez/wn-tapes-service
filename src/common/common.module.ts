@@ -8,4 +8,4 @@ const modules = [ConfigurationModule, LoggerModule];
   imports: modules,
   exports: modules,
 })
-export class SharedModule {}
+export class CommonModule {}

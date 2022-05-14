@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { TAPES_ROUTE } from '../tapes.route';
-import { V1 } from '../../../../shared/routes/routes.constants';
+import { V1 } from '../../../../common';
 import { TapesFinderUseCase } from '../../../application';
 
 @Controller(`${V1}/${TAPES_ROUTE}`)

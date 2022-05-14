@@ -1,12 +1,12 @@
-import { Logger, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { TapesUseCasesModule } from './application';
 import { TapesDomainModule } from './domain';
 import { TapesInfrastructureModule } from './infrastructure';
-import { SharedModule } from '../shared';
+import { CommonModule } from '../common';
 
 @Module({
   imports: [
-    SharedModule,
+    CommonModule,
     TapesUseCasesModule,
     TapesDomainModule,
     TapesInfrastructureModule,
