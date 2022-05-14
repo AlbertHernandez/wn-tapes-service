@@ -1,4 +1,1 @@
-export const tapesRoute = {
-  version: 'v1',
-  root: 'tapes',
-};
+export const TAPES = 'tapes';

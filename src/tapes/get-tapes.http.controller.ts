@@ -1,8 +1,9 @@
 import { Controller, Get } from '@nestjs/common';
 import { TapesService } from './tapes.service';
-import { tapesRoute } from './tapes.route';
+import { TAPES } from './tapes.route';
+import { V1 } from 'src/shared/routes/routes.constants';
 
-@Controller(`${tapesRoute.version}/${tapesRoute.root}`)
+@Controller(`${V1}/${TAPES}`)
 export class GetTapesHttpController {
   constructor(private readonly tapesService: TapesService) {}
 
