@@ -1,12 +1,12 @@
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { ServerConfig } from './infrastructure/configuration/interfaces';
-import { ConfigIdentifier } from './infrastructure/configuration/constants';
+import { TapesAppModule } from './tapes-app.module';
+import { ServerConfig } from '../shared/configuration/interfaces';
+import { ConfigIdentifier } from '../shared/configuration/constants';
 import { Logger } from '@nestjs/common';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(TapesAppModule);
 
   const configService = app.get(ConfigService);
   const logger = app.get(Logger);
