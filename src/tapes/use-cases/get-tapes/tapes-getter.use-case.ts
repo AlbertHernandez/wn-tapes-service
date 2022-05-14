@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { TapesService } from '../../domain/tapes.service';
+import { TapesCreator } from '../../domain/tapes-creator.service';
 
 @Injectable()
 export class TapesGetter {
-  constructor(private readonly tapesService: TapesService) {}
+  constructor(private readonly tapesCreator: TapesCreator) {}
 
   run() {
-    return this.tapesService.getHello();
+    return this.tapesCreator.getHello();
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class TapesService {
+export class TapesCreator {
   getHello() {
     return {
       name: 'Albert',
