@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { getServerConfig } from './config';
+import { getServerConfigResolver } from './resolvers';
 import { environmentVariablesSchema } from './environment-variables.schema';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      load: [getServerConfig],
+      load: [getServerConfigResolver],
       validationSchema: environmentVariablesSchema,
     }),
   ],
