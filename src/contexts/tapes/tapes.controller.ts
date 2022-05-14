@@ -6,7 +6,7 @@ export class TapesController {
   constructor(private readonly tapesService: TapesService) {}
 
   @Get()
-  getHello(): string {
+  getHello() {
     return this.tapesService.getHello();
   }
 }
