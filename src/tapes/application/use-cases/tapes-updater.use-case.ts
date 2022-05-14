@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { TapesDeleterService } from '../../domain';
+import { TapesUpdaterService } from '../../domain';
 
 @Injectable()
 export class TapesUpdaterUseCase {
-  constructor(private readonly tapesDeleterService: TapesDeleterService) {}
+  constructor(private readonly tapesUpdaterService: TapesUpdaterService) {}
 
   run() {
-    return this.tapesDeleterService.delete();
+    return this.tapesUpdaterService.update();
   }
 }
