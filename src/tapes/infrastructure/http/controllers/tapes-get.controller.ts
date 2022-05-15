@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { TAPES_ROUTE } from '../tapes.route';
-import { V1 } from '../../../../common';
+import { V1 } from '../../../../common/http/routes';
 import { TapesByIdFinderUseCase } from '../../../application/use-cases';
 
 @Controller(`${V1}/${TAPES_ROUTE}`)

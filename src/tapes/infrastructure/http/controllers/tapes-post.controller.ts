@@ -1,6 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { TAPES_ROUTE } from '../tapes.route';
-import { V1 } from '../../../../common';
+import { V1 } from '../../../../common/http/routes';
 import { TapesCreatorUseCase } from '../../../application/use-cases';
 import { CreateTapeDto } from '../../../application/dto';
 
