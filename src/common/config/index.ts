@@ -1,3 +1,3 @@
 export * from './configuration.module';
-export * from './config-identifier.constant';
-export * from './server.config';
+export * from './domain/config-identifier.constant';
+export * from './domain/server.config';

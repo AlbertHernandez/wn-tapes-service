@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { environmentVariablesSchema } from './environment-variables.schema';
-import { configLoader } from './config.loader';
+import { environmentVariablesSchema } from './domain/environment-variables.schema';
+import { configLoader } from './domain/config.loader';
 
 @Module({
   imports: [
