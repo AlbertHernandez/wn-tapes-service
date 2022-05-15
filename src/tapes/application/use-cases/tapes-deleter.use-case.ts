@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { TapesDeleterService } from '../../domain';
+import { TapesDeleterService } from '../../domain/services';
 
 @Injectable()
 export class TapesDeleterUseCase {

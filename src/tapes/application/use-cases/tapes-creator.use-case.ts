@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Tape, TapesCreatorService } from '../../domain';
-import { CreateTapeDto } from '../dto/create-tape.dto';
+import { Tape } from '../../domain/entities';
+import { TapesCreatorService } from '../../domain/services';
+import { CreateTapeDto } from '../dto';
 
 @Injectable()
 export class TapesCreatorUseCase {

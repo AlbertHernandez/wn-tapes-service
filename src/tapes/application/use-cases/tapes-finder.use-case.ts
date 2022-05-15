@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { TapesFinderService } from '../../domain';
+import { TapesFinderService } from '../../domain/services';
 
 @Injectable()
 export class TapesFinderUseCase {

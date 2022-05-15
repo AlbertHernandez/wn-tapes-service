@@ -1,6 +1,8 @@
-import { Tape, TapeId } from '../../domain';
-import { TapeRepository } from '../../domain/repositories/tape.repository';
+import { Injectable } from '@nestjs/common';
+import { Tape, TapeId } from '../../domain/entities';
+import { TapeRepository } from '../../domain/repositories';
 
+@Injectable()
 export class InMemoryTapeRepository implements TapeRepository {
   private tapeMemory: Record<TapeId, Tape>;
 

@@ -1,4 +1,6 @@
-import { Tape, TapeId } from '../entities/tape.entity';
+import { Tape, TapeId } from '../entities';
+
+export const TAPE_REPOSITORY = 'TapeRepository';
 
 export interface TapeRepository {
   create(tape: Tape): Promise<void>;

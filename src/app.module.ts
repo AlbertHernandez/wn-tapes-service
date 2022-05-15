@@ -5,4 +5,4 @@ import { CommonModule } from './common';
 @Module({
   imports: [CommonModule, TapesModule],
 })
-export class TapesAppModule {}
+export class AppModule {}
