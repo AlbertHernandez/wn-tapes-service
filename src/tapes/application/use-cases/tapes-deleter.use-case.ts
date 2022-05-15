@@ -5,7 +5,7 @@ import { TapesDeleterService } from '../../domain';
 export class TapesDeleterUseCase {
   constructor(private readonly tapesDeleterService: TapesDeleterService) {}
 
-  run() {
-    return this.tapesDeleterService.delete();
+  async run() {
+    return await this.tapesDeleterService.delete();
   }
 }

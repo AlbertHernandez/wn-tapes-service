@@ -1,11 +1,13 @@
 import { Injectable } from '@nestjs/common';
-import { TapesCreatorService } from '../../domain';
+import { Tape, TapesCreatorService } from '../../domain';
+import { CreateTapeDto } from '../dto/create-tape.dto';
 
 @Injectable()
 export class TapesCreatorUseCase {
   constructor(private readonly tapesCreatorService: TapesCreatorService) {}
 
-  run() {
-    return this.tapesCreatorService.create();
+  async run(createTapeDto: CreateTapeDto) {
+    const tape = Tape.create(createTapeDto);
+    return await this.tapesCreatorService.create(tape);
   }
 }

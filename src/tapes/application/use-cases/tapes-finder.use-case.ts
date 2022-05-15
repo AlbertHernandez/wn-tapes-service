@@ -5,7 +5,7 @@ import { TapesFinderService } from '../../domain';
 export class TapesFinderUseCase {
   constructor(private readonly tapesFinderService: TapesFinderService) {}
 
-  run() {
-    return this.tapesFinderService.find();
+  async run() {
+    return await this.tapesFinderService.find();
   }
 }

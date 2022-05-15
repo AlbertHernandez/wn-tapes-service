@@ -5,7 +5,7 @@ import { TapesUpdaterService } from '../../domain';
 export class TapesUpdaterUseCase {
   constructor(private readonly tapesUpdaterService: TapesUpdaterService) {}
 
-  run() {
-    return this.tapesUpdaterService.update();
+  async run() {
+    return await this.tapesUpdaterService.update();
   }
 }

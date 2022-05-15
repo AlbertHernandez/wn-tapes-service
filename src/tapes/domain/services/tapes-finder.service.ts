@@ -4,7 +4,7 @@ import { Injectable, Logger } from '@nestjs/common';
 export class TapesFinderService {
   constructor(private readonly logger: Logger) {}
 
-  find() {
+  async find() {
     this.logger.debug('Running tapes finder service');
 
     return {
