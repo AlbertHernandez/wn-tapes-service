@@ -1,10 +1,10 @@
-import pino from 'pino';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { LoggerModule as PinoLoggerModule } from 'nestjs-pino';
 import { ConfigIdentifier, ServerConfig } from '../config';
 import { LoggerConfig } from '../config/domain/logger.config';
 import { generateUuid } from '../generate-uuid';
+import { CORRELATION_ID_KEY } from '../http/request';
 
 @Module({
   imports: [
@@ -33,7 +33,7 @@ import { generateUuid } from '../generate-uuid';
           pinoHttp: {
             enabled: loggerConfig.isEnabled,
             genReqId: (req) => {
-              const correlationId = req.headers['x-request-id'];
+              const correlationId = req.headers[CORRELATION_ID_KEY];
               return correlationId || generateUuid();
             },
             messageKey: 'message',

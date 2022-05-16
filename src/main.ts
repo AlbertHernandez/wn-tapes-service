@@ -6,13 +6,16 @@ import helmet from 'helmet';
 import { AppModule } from './app.module';
 import { API } from './common/http/routes';
 import { ConfigIdentifier, ServerConfig } from './common/config';
-import { UnifiedRequestResponseInterceptor } from './common/http/request';
+import {
+  correlationIdMiddleware,
+  UnifiedRequestResponseInterceptor,
+} from './common/http/request';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { bufferLogs: true });
   app.useLogger(app.get(Logger));
 
-  app.use(helmet());
+  app.use(helmet(), correlationIdMiddleware());
 
   app.useGlobalInterceptors(new UnifiedRequestResponseInterceptor());
 
