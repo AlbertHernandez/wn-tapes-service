@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { LoggerModule as PinoLoggerModule } from 'nestjs-pino';
-import { ConfigIdentifier } from '../config';
+import { ConfigIdentifier, ServerConfig } from '../config';
 import { LoggerConfig } from '../config/domain/logger.config';
 
 @Module({
@@ -13,9 +13,17 @@ import { LoggerConfig } from '../config/domain/logger.config';
         const loggerConfig = configService.get<LoggerConfig>(
           ConfigIdentifier.Logger,
         );
+        const serverConfig = configService.get<ServerConfig>(
+          ConfigIdentifier.Server,
+        );
 
         return {
-          pinoHttp: { level: loggerConfig.level },
+          pinoHttp: {
+            level: loggerConfig.level,
+            transport: serverConfig.development
+              ? { target: 'pino-pretty' }
+              : undefined,
+          },
         };
       },
     }),
