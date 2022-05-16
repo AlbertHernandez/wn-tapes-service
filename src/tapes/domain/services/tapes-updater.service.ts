@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 
 @Injectable()
 export class TapesUpdaterService {
-  constructor(private readonly logger: Logger) {}
+  private readonly logger = new Logger(TapesUpdaterService.name);
 
   async update() {
     this.logger.debug('Running tapes updater service');

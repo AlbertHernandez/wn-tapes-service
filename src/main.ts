@@ -1,13 +1,15 @@
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
-import { Logger, ValidationPipe } from '@nestjs/common';
+import { ValidationPipe } from '@nestjs/common';
+import { Logger } from 'nestjs-pino';
 import { AppModule } from './app.module';
 import { API } from './common/http/routes';
 import { ConfigIdentifier, ServerConfig } from './common/config';
 import { UnifiedRequestResponseInterceptor } from './common/http/request';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { bufferLogs: true });
+  app.useLogger(app.get(Logger));
 
   app.useGlobalInterceptors(new UnifiedRequestResponseInterceptor());
 

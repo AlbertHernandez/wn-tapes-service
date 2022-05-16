@@ -5,8 +5,8 @@ import { TapeNotFoundException } from '../exceptions';
 
 @Injectable()
 export class TapeByIdFinderService {
+  private readonly logger = new Logger(TapeByIdFinderService.name);
   constructor(
-    private readonly logger: Logger,
     @Inject(TAPE_REPOSITORY)
     private readonly tapeRepository: TapeRepository,
   ) {}

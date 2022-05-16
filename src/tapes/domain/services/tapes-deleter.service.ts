@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 
 @Injectable()
 export class TapesDeleterService {
-  constructor(private readonly logger: Logger) {}
+  private readonly logger = new Logger(TapesDeleterService.name);
 
   async delete() {
     this.logger.debug('Running tapes deleter service');

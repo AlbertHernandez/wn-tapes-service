@@ -3,7 +3,7 @@ import { Injectable, Logger } from '@nestjs/common';
 
 @Injectable()
 export class ErrorHandler implements IErrorHandler {
-  constructor(private readonly logger: Logger) {}
+  private readonly logger = new Logger(ErrorHandler.name);
 
   async handleError(error: Error): Promise<void> {
     this.logger.error({

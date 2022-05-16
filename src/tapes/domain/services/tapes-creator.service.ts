@@ -4,8 +4,8 @@ import { TAPE_REPOSITORY, TapeRepository } from '../repositories';
 
 @Injectable()
 export class TapesCreatorService {
+  private readonly logger = new Logger(TapesCreatorService.name);
   constructor(
-    private readonly logger: Logger,
     @Inject(TAPE_REPOSITORY)
     private readonly tapeRepository: TapeRepository,
   ) {}
