@@ -32,7 +32,10 @@ import { generateUuid } from '../generate-uuid';
         return {
           pinoHttp: {
             enabled: loggerConfig.isEnabled,
-            genReqId: () => generateUuid(),
+            genReqId: (req) => {
+              const correlationId = req.headers['x-request-id'];
+              return correlationId || generateUuid();
+            },
             messageKey: 'message',
             level: loggerConfig.level,
             transport: serverConfig.development
