@@ -1,3 +1,4 @@
+import pino from 'pino';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { LoggerModule as PinoLoggerModule } from 'nestjs-pino';
@@ -35,7 +36,12 @@ import { generateUuid } from '../generate-uuid';
             messageKey: 'message',
             level: loggerConfig.level,
             transport: serverConfig.development
-              ? { target: 'pino-pretty' }
+              ? {
+                  target: 'pino-pretty',
+                  options: {
+                    messageKey: 'message',
+                  },
+                }
               : undefined,
             timestamp: () =>
               `,"timestamp":"${new Date(Date.now()).toISOString()}"`,
