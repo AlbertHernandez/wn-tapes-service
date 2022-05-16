@@ -17,13 +17,42 @@ import { LoggerConfig } from '../config/domain/logger.config';
           ConfigIdentifier.Server,
         );
 
+        // https://cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry#logseverity
+        const pinoLevelToSeverityLookup = {
+          trace: 'DEBUG',
+          debug: 'DEBUG',
+          info: 'INFO',
+          warn: 'WARNING',
+          error: 'ERROR',
+          fatal: 'CRITICAL',
+        };
+
         return {
           pinoHttp: {
-            name: 'WN - Tapes Service',
+            enabled: loggerConfig.isEnabled,
+            messageKey: 'message',
             level: loggerConfig.level,
             transport: serverConfig.development
               ? { target: 'pino-pretty' }
               : undefined,
+            timestamp: () =>
+              `,"timestamp":"${new Date(Date.now()).toISOString()}"`,
+            base: {
+              service: {
+                projectName: serverConfig.serviceName,
+                environment: serverConfig.environment,
+              },
+            },
+            formatters: {
+              level(label: string, level: number) {
+                return {
+                  severity:
+                    pinoLevelToSeverityLookup[label] ||
+                    pinoLevelToSeverityLookup.info,
+                  level,
+                };
+              },
+            },
           },
         };
       },
