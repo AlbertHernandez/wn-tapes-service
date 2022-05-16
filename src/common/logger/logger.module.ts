@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { LoggerModule as PinoLoggerModule } from 'nestjs-pino';
 import { ConfigIdentifier, ServerConfig } from '../config';
 import { LoggerConfig } from '../config/domain/logger.config';
+import { generateUuid } from '../generate-uuid';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { LoggerConfig } from '../config/domain/logger.config';
         return {
           pinoHttp: {
             enabled: loggerConfig.isEnabled,
+            genReqId: () => generateUuid(),
             messageKey: 'message',
             level: loggerConfig.level,
             transport: serverConfig.development
