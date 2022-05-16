@@ -45,6 +45,22 @@ import { generateUuid } from '../generate-uuid';
                 environment: serverConfig.environment,
               },
             },
+            autoLogging: false,
+            serializers: {
+              req() {
+                return undefined;
+              },
+              res() {
+                return undefined;
+              },
+            },
+            customProps: function (req) {
+              return {
+                traces: {
+                  requestId: req.id,
+                },
+              };
+            },
             formatters: {
               level(label: string, level: number) {
                 return {
