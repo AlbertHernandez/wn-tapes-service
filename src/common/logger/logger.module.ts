@@ -19,6 +19,7 @@ import { LoggerConfig } from '../config/domain/logger.config';
 
         return {
           pinoHttp: {
+            name: 'WN - Tapes Service',
             level: loggerConfig.level,
             transport: serverConfig.development
               ? { target: 'pino-pretty' }
